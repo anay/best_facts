@@ -11,5 +11,12 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
 
   has_many :facts
-  
+
+  after_create :assign_default_user_role
+
+  private
+  def assign_default_user_role
+    self.add_role :contributor if self.roles.empty?
+  end
+
 end
