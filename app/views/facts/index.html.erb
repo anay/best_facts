@@ -1,0 +1,27 @@
+<h1>Listing facts</h1>
+
+<table class="table table-condensed">
+  <tr>
+    <th><%= sortable_column "Title" %></th>
+    <th><%= sortable_column "Content" %></th>
+    <th><%= sortable_column "Author" %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @facts.each do |fact| %>
+  <tr>
+    <td><%= fact.title %></td>
+    <td><%= fact.content %></td>
+    <td><%= fact.user.name %></td>
+    <td><%= can?(:read, fact) ? link_to('Show', fact) : "" %></td>
+    <td><%= can?(:edit, fact) ? link_to('Edit', edit_fact_path(fact)) : "" %></td>
+    <td><%= can?(:destroy, fact) ? link_to('Destroy', fact, method: :delete, data: { confirm: 'Are you sure?' }):"" %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= can?(:create, Fact) ? link_to('New Fact', new_fact_path) : "" %>

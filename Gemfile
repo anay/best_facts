@@ -7,13 +7,19 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
 end
-gem 'jquery-rails'
+gem "jquery-rails", "< 3.0.0"
 gem 'bootstrap-sass', '~> 2.3.2.2'
 gem 'cancan'
 gem 'devise'
 gem 'figaro'
 gem 'rolify'
 gem 'simple_form'
+
+gem 'activeadmin'
+gem "meta_search",    '>= 1.1.0.pre'
+
+gem "handles_sortable_columns"
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :rbx]
