@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 ruby '1.9.3'
 gem 'rails', '3.2.15'
-gem 'sqlite3'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -29,6 +28,7 @@ end
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
+  gem 'sqlite3'
 end
 group :production do
   gem 'thin'
